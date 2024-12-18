@@ -1,11 +1,32 @@
 @import url(https://fonts.bunny.net/css?family=limelight:400);
 
+:root {
+  --back-color: #FFFFFF;
+  --neutral: #DFE0DF;
+  --primary-1: #E0AB4B;
+  --primary-2: #C16A22;
+  --primary-3: #B2611F;
+  --secondary-1-60: rgba(222,217,207,.6);
+  --secondary-1: #DED9CF;
+  --secondary-2: #C9A994;
+  --secondary-3: #AA776A;
+  --secondary-4: #6D2D1B;
+  --secondary-5: #411E00;
+  --accent-1: #009E8C;
+  --accent-2: #005B4B;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 /* NORMALIZE */
@@ -46,48 +67,47 @@ button:-moz-focusring {
 
 /*END NORMALIZE*/
 
-html {
-  font-family: sans-serif;
-  font-size: 100%;
-}
-
 body {
-  background-color: orange;
+  background: var(--primary-1);
+  background: -moz-linear-gradient(top, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
+  background: -webkit-linear-gradient(top, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
+  background: linear-gradient(to bottom, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
   height: 100vh;
 }
 
 .main-container {
-  background-color: wheat;
+  background-color: var(--back-color);
   margin: 0 5vw 0 2vw;
   display: flex;
   justify-content: space-between;
 }
 
 .content-container {
-  background-color: coral;
   display: flex;
   flex-direction: column;
   align-self: center;
   flex: auto;
   gap: 2rem;
+  margin: 0 min(1rem, 1vw);
 }
 
 .welcome-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background: blanchedalmond;
   align-self: center;
   min-width: min(800px, 100%);
   font-size: 1.5rem;
+  color: var(--secondary-4);
 }
 
 .welcome-container>h3 {
   font-size: 2.5rem;
+  color: var(--primary-3);
 }
 
 .form-container {
-  background-color: sandybrown;
+  color: var(--secondary-4);
   min-width: min(740px, 100%);
   align-self: center;
 }
@@ -96,7 +116,6 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background-color: firebrick;
 }
 
 .form-field {
@@ -110,11 +129,10 @@ form {
   width:100%; 
   transition: all .3s;
   outline: none;
-  border: 2px solid blue;
-}
-
-.form-field>input:focus {
-
+  border: 2px solid var(--secondary-3);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  color: var(--secondary-5);
 }
 
 .form-field>label {
@@ -124,9 +142,9 @@ form {
   transition: all 0.2s ease-in;
   padding: 0 0.2rem;
   z-index: 1;
-  color: blue;
+  color: var(--primary-3);
   cursor: text;
-  background-color: greenyellow;
+  background-color: var(--back-color);
 }
 /* ANOTHER OPTION
 .form-field>label::before {
@@ -149,6 +167,7 @@ form {
 .form-field>input::placeholder {
   opacity: 0;
   transition: all 0.2s ease-in;
+  color: var(--secondary-1);
 }
 
 .form-field>input:focus::placeholder {
@@ -157,7 +176,6 @@ form {
 }
 
 .tos-container {
-  background-color: gold;
   grid-column: 1 / span 2;
   font-size: 1rem;
   display: flex;
@@ -168,8 +186,9 @@ form {
 .button {
   border: 0;
   border-radius: 0.25rem;
-  background: hsl(208, 79%, 51%);
-  color: white;
+  background: var(--accent-1);
+  border-radius: 8px;
+  color: var(--back-color);
   font-family: -system-ui, sans-serif;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -183,7 +202,6 @@ form {
 .signin-container {
   margin-top: 1.75rem;
   font-size: 1.125rem;
-  background-color: yellow;
 }
 
 .image-container {
@@ -199,21 +217,84 @@ form {
   text-align: center;
   top: 8%;
   padding: 0.9em 0.4em 0.7em 0.4em;
-  background-color: chocolate;
+  color: var(--secondary-4);
   font-family: 'Limelight';
   font-size: clamp(24px, 5vw, 48px);
+  background-color: var(--secondary-1-60);
 }
 
 .copyright {
   position: absolute;
   bottom: 0px;
+  padding-top: 2px;
   width: 100%;
   text-align: center;
-  background-color: rebeccapurple;
+  background-color: var(--secondary-3);
+  color: var(--secondary-5);
 }
 
-span {
-  color: darkcyan;
+span.pseudo-link {
+  color: var(--accent-1);
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* remove OG checkbox */
+[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* position label */
+[type="checkbox"] + label {
+    position: relative;
+    padding-top: 0.2rem;
+    padding-left: 2rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+/* new checkbox */
+[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 1.5rem; 
+    height: 1.5rem;
+    border: 2px solid var(--secondary-2);
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+
+/* check mark*/
+[type="checkbox"] + label:after {
+    content: '✔';
+    position: absolute;
+    top: 0px; 
+    left: 0.4rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: var(--accent-2);
+    transition: all 0.3;
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[type="checkbox"]:focus + label:before {
+    border: 2px solid var(--accent-2);
+}
+
+label:hover:before {
+    border: 2px solid var(--accent-1)!important;
+    background: #ffffff;
 }
