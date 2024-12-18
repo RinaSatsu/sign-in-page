@@ -1,10 +1,11 @@
 @import url(https://fonts.bunny.net/css?family=limelight:400);
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --primary: #FFFFFF;
 }
 
 /* NORMALIZE */
@@ -87,7 +88,7 @@ body {
 
 .form-container {
   background-color: sandybrown;
-  max-width: 740px;
+  min-width: min(740px, 100%);
   align-self: center;
 }
 
@@ -96,7 +97,63 @@ form {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   background-color: firebrick;
+}
 
+.form-field {
+  position: relative;
+}
+
+.form-field>input {
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  width:100%; 
+  transition: all .3s;
+  outline: none;
+  border: 2px solid blue;
+}
+
+.form-field>input:focus {
+
+}
+
+.form-field>label {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.7rem;
+  transition: all 0.2s ease-in;
+  padding: 0 0.2rem;
+  z-index: 1;
+  color: blue;
+  cursor: text;
+  background-color: greenyellow;
+}
+/* ANOTHER OPTION
+.form-field>label::before {
+  content: "";
+  height: 5px;
+  background-color: greenyellow;
+  position: absolute;
+  left: 0px;
+  top: 0.6rem;
+  width: 100%;
+  z-index: -1;
+}*/
+
+.form-field>input:focus+label,
+.form-field>input:not(:placeholder-shown):not(:focus)+label {
+  top: -0.6rem;
+  font-size: 0.9rem;
+}
+
+.form-field>input::placeholder {
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.form-field>input:focus::placeholder {
+  opacity: 1;
+  animation-delay: 0.2s;
 }
 
 .tos-container {
@@ -108,8 +165,29 @@ form {
   gap: 0.7rem;
 }
 
+.button {
+  border: 0;
+  border-radius: 0.25rem;
+  background: hsl(208, 79%, 51%);
+  color: white;
+  font-family: -system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  max-width: 75%;
+}
+
+.signin-container {
+  margin-top: 1.75rem;
+  font-size: 1.125rem;
+  background-color: yellow;
+}
+
 .image-container {
-  background: orangered url(./hero-image.webp) center/cover no-repeat;
+  background: url(./hero-image.webp) center/cover no-repeat;
   width: 79.49vh;
   height: 100vh;
   position: relative;
@@ -134,33 +212,8 @@ form {
   background-color: rebeccapurple;
 }
 
-.form-field>input {
-  height: 2.5rem;
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-}
-
-.button {
-  border: 0;
-  border-radius: 0.25rem;
-  background: #1E88E5;
-  color: white;
-  font-family: -system-ui, sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  max-width: 75%;
-}
-
-.signin-container {
-  background-color: yellow;
-  margin-top: 1.75rem;
-  font-size: 1.125rem;
-}
-
 span {
   color: darkcyan;
+  text-decoration: underline;
+  cursor: pointer;
 }
