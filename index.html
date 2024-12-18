@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js"></script>
+</head>
+<body>
+  <div class="main-container">
+    <div class="content-container">
+      <div class="welcome-container">
+        <h3>Welcome!</h3>
+        <p>Subscribe now to get best liquers and beverages</p>
+      </div>
+      <div class="form-container">
+        <form action="./userdata" method="post">
+          <div class="form-field">
+            <input type="text" name="user-first-name" id="user-first-name">
+            <label for="user-first-name">First name</label>
+          </div>
+          <div class="form-field">
+            <input type="text" name="user-last-name" id="user-last-name">
+            <label for="user-last-name">Last name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" name="user-email" id="user-email">
+            <label for="user-email">Email address</label>
+          </div>
+          <div class="form-field">
+            <input type="tel" name="user-phone" id="user-phone">
+            <label for="user-phone">Phone number</label>
+          </div>
+          <div class="form-field">
+            <input type="password" name="user-password" id="user-password">
+            <label for="user-password">Password</label>
+            <!-- Show pass button -->
+          </div>
+          <div class="form-field">
+            <input type="password" name="user-password-confirm" id="user-password-confirm">
+            <label for="user-password-confirm">Confirm Password</label>
+          </div>
+          <div class="tos-container">
+            <p>By signing up you agree to <span>Terms of Service</span></p>
+            <div>
+              <input type="checkbox" name="tos-agree" id="tos-agree">
+              <label for="tos-agree">I agree</label>
+            </div>
+          </div>
+          <button type="submit" class="button">Sign Up!</button>
+        </form>
+        <div class="signin-container">Already have an account? <span>Sign In</span></div>
+      </div>
+    </div>
+    <div class="image-container">
+      <div class="brand-name-container">The Golden Goblet</div>
+      <div class="copyright">Copyright</div>
+    </div>
+  </div>
+</body>
+</html>
+

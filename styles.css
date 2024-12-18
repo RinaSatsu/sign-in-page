@@ -1,0 +1,166 @@
+@import url(https://fonts.bunny.net/css?family=limelight:400);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --primary: #FFFFFF;
+}
+
+/* NORMALIZE */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+  line-height: 1.15; /* For all browsers */
+  -webkit-text-size-adjust: 100%; /* iOS adjusts font size */
+}
+
+button,
+input {
+  font-family: inherit; /* For all browsers */
+  font-size: 100%; /* For all browsers */
+  line-height: 1.15; /* For all browsers */
+  margin: 0; /* Firefox and Safari have margin */
+  overflow: visible; /* Edge hides overflow */
+}
+
+button {
+  text-transform: none; /* Firefox inherits text-transform */
+  -webkit-appearance: button; /* Safari otherwise prevents some styles */
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* IE10 */
+  padding: 0; /* IE10 adds padding */
+}
+
+/*END NORMALIZE*/
+
+html {
+  font-family: sans-serif;
+  font-size: 100%;
+}
+
+body {
+  background-color: orange;
+  height: 100vh;
+}
+
+.main-container {
+  background-color: wheat;
+  margin: 0 5vw 0 2vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-container {
+  background-color: coral;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex: auto;
+  gap: 2rem;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: blanchedalmond;
+  align-self: center;
+  min-width: min(800px, 100%);
+  font-size: 1.5rem;
+}
+
+.welcome-container>h3 {
+  font-size: 2.5rem;
+}
+
+.form-container {
+  background-color: sandybrown;
+  max-width: 740px;
+  align-self: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: firebrick;
+
+}
+
+.tos-container {
+  background-color: gold;
+  grid-column: 1 / span 2;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.image-container {
+  background: orangered url(./hero-image.webp) center/cover no-repeat;
+  width: 79.49vh;
+  height: 100vh;
+  position: relative;
+}
+
+.brand-name-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 8%;
+  padding: 0.9em 0.4em 0.7em 0.4em;
+  background-color: chocolate;
+  font-family: 'Limelight';
+  font-size: clamp(24px, 5vw, 48px);
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: rebeccapurple;
+}
+
+.form-field>input {
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.button {
+  border: 0;
+  border-radius: 0.25rem;
+  background: #1E88E5;
+  color: white;
+  font-family: -system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  max-width: 75%;
+}
+
+.signin-container {
+  background-color: yellow;
+  margin-top: 1.75rem;
+  font-size: 1.125rem;
+}
+
+span {
+  color: darkcyan;
+}
