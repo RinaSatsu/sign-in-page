@@ -1,6 +1,6 @@
 @import url(https://fonts.bunny.net/css?family=limelight:400);
 
-:root {
+[data-theme="light"] {
   --back-color: #FFFFFF;
   --neutral: #DFE0DF;
   --primary-1: #E0AB4B;
@@ -12,8 +12,34 @@
   --secondary-3: #AA776A;
   --secondary-4: #6D2D1B;
   --secondary-5: #411E00;
+  --brand-name: var(--secondary-4);
+  --label-color: var(--primary-3);
   --accent-1: #009E8C;
   --accent-2: #005B4B;
+  --error: #f02a0f;
+
+  --theme: "light";
+}
+
+[data-theme="dark"] {
+  --back-color: #25201A;
+  --neutral: #DFE0DF;
+  --primary-1: #9b6502;
+  --primary-2: #612e05;
+  --primary-3: #E0AB4B;
+  --secondary-1-60: rgba(65,30,0,.6);
+  --secondary-1: #3A352F;
+  --secondary-2: #895B09;
+  --secondary-3: #66625D;
+  --secondary-4: #CAC5BB;
+  --secondary-5: #CAC5BB;
+  --brand-name: var(--primary-3);
+  --label-color: var(--secondary-4);
+  --accent-1: #037963;
+  --accent-2: #009E8C;
+  --error: #be1a04;
+
+  --theme: "dark";
 }
 
 *,
@@ -47,7 +73,7 @@ input {
 
 button {
   text-transform: none; /* Firefox inherits text-transform */
-  -webkit-appearance: button; /* Safari otherwise prevents some styles */
+/*  -webkit-appearance: button; /* Safari otherwise prevents some styles */
 }
 
 button::-moz-focus-inner {
@@ -80,6 +106,14 @@ body {
   margin: 0 5vw 0 2vw;
   display: flex;
   justify-content: space-between;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 1.7vw;
+  top: 1rem;
+  z-index: 1;
+  color: var(--brand-name);
 }
 
 .content-container {
@@ -133,6 +167,15 @@ form {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   color: var(--secondary-5);
+  background-color: var(--back-color);
+}
+
+.form-field>input:focus {
+  border-color: var(--accent-2);
+}
+
+.form-field>input:required:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--error);
 }
 
 .form-field>label {
@@ -142,7 +185,7 @@ form {
   transition: all 0.2s ease-in;
   padding: 0 0.2rem;
   z-index: 1;
-  color: var(--primary-3);
+  color: var(--label-color);
   cursor: text;
   background-color: var(--back-color);
 }
@@ -158,8 +201,8 @@ form {
   z-index: -1;
 }*/
 
-.form-field>input:focus+label,
-.form-field>input:not(:placeholder-shown):not(:focus)+label {
+.form-field>input:focus + label,
+.form-field>input:not(:placeholder-shown):not(:focus) + label {
   top: -0.6rem;
   font-size: 0.9rem;
 }
@@ -175,6 +218,35 @@ form {
   animation-delay: 0.2s;
 }
 
+
+.form-field>input:focus + label {
+  color: var(--accent-2);
+}
+
+.form-field>input:required:invalid:not(:placeholder-shown):not(:focus) + label {
+  color: var(--error);
+}
+
+.password-eye {
+  position: absolute;
+  right: 0.65rem;
+  top: 0.5rem;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.form-field>input:focus~.password-eye,
+.form-field>input:not(:placeholder-shown):not(:focus)~.password-eye {
+  visibility: visible;
+  opacity: 100;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
 .tos-container {
   grid-column: 1 / span 2;
   font-size: 1rem;
@@ -183,12 +255,17 @@ form {
   gap: 0.7rem;
 }
 
+.signin-container {
+  margin-top: 1.75rem;
+  font-size: 1.125rem;
+}
+
 .button {
   border: 0;
   border-radius: 0.25rem;
-  background: var(--accent-1);
+  background-color: var(--accent-1);
   border-radius: 8px;
-  color: var(--back-color);
+  color: var(--neutral);
   font-family: -system-ui, sans-serif;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -199,9 +276,8 @@ form {
   max-width: 75%;
 }
 
-.signin-container {
-  margin-top: 1.75rem;
-  font-size: 1.125rem;
+.button:hover {
+  background-color: var(--accent-2);
 }
 
 .image-container {
@@ -211,13 +287,17 @@ form {
   position: relative;
 }
 
+[data-theme="dark"] .image-container {
+  opacity: 0.8;
+}
+
 .brand-name-container {
   position: absolute;
   width: 100%;
   text-align: center;
   top: 8%;
   padding: 0.9em 0.4em 0.7em 0.4em;
-  color: var(--secondary-4);
+  color: var(--brand-name);
   font-family: 'Limelight';
   font-size: clamp(24px, 5vw, 48px);
   background-color: var(--secondary-1-60);
@@ -237,6 +317,10 @@ span.pseudo-link {
   color: var(--accent-1);
   text-decoration: underline;
   cursor: pointer;
+}
+
+span.pseudo-link:hover {
+  color: var(--accent-2);
 }
 
 /* remove OG checkbox */
@@ -263,7 +347,7 @@ span.pseudo-link {
     width: 1.5rem; 
     height: 1.5rem;
     border: 2px solid var(--secondary-2);
-    background: #ffffff;
+    background: transparent;
     border-radius: 4px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
 }
@@ -296,5 +380,5 @@ span.pseudo-link {
 
 label:hover:before {
     border: 2px solid var(--accent-1)!important;
-    background: #ffffff;
+    background: transparent;
 }

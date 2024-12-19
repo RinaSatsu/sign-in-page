@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sign-In | The Golden Goblet</title>
   <link rel="stylesheet" href="./styles.css" />
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 <body>
+  <svg class="light-theme theme-toggle" aria-hidden="true" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
+  </svg>
+  <svg class="dark-theme theme-toggle" aria-hidden="true" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z" clip-rule="evenodd"/>
+  </svg>
   <div class="main-container">
     <div class="content-container">
       <div class="welcome-container">
@@ -17,36 +23,50 @@
       <div class="form-container">
         <form action="./userdata" method="post">
           <div class="form-field">
-            <input type="text" name="user-first-name" id="user-first-name" placeholder="John" autocomplete="off" required>
+            <input type="text" name="user-first-name" id="user-first-name" placeholder="John" autocomplete="name" required>
             <label for="user-first-name">First name<span aria-label="required">*</span></label>
           </div>
           <div class="form-field">
-            <input type="text" name="user-last-name" id="user-last-name" placeholder="Smith" autocomplete="off" required>
+            <input type="text" name="user-last-name" id="user-last-name" placeholder="Smith" autocomplete="name" required>
             <label for="user-last-name">Last name<span aria-label="required">*</span></label>
           </div>
           <div class="form-field">
-            <input type="email" name="user-email" id="user-email" placeholder="example@domain.com" autocomplete="off" required>
+            <input type="email" name="user-email" id="user-email" placeholder="example@domain.com" autocomplete="email" required>
             <label for="user-email">Email address<span aria-label="required">*</span></label>
           </div>
           <div class="form-field">
-            <input type="tel" name="user-phone" id="user-phone" placeholder="5551234567" autocomplete="off">
+            <input type="tel" name="user-phone" id="user-phone" placeholder="5551234567" autocomplete="tel-local">
             <label for="user-phone">Phone number</label>
           </div>
           <div class="form-field">
             <input type="password" name="user-password" id="user-password" 
-            placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" autocomplete="off" required>
+            placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" autocomplete="new-password" required>
             <label for="user-password">Password<span aria-label="required">*</span></label>
+            <svg class="password-eye open" aria-hidden="true" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+              <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+            <svg class="password-eye closed invisible" aria-hidden="true" width="24" height="24" fill="new-password" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
           </div>
           <div class="form-field">
             <input type="password" name="user-password-confirm" id="user-password-confirm" 
             placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" autocomplete="off" required>
             <label for="user-password-confirm">Confirm Password<span aria-label="required">*</span></label>
+            <svg class="password-eye open" aria-hidden="true" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+              <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+            <svg class="password-eye closed invisible" aria-hidden="true" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
           </div>
           <div class="tos-container">
             <p>By signing up you agree to <span class="pseudo-link">Terms of Service</span></p>
             <div>
               <input type="checkbox" name="tos-agree" id="tos-agree">
-              <label for="tos-agree" id="tos-label">I agree<span aria-label="required">*</span></label>
+              <label for="tos-agree">I agree<span aria-label="required">*</span></label>
             </div>
           </div>
           <button type="submit" class="button">Sign Up!</button>
