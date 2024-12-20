@@ -73,7 +73,7 @@ input {
 
 button {
   text-transform: none; /* Firefox inherits text-transform */
-/*  -webkit-appearance: button; /* Safari otherwise prevents some styles */
+  -webkit-appearance: button; /* Safari otherwise prevents some styles */
 }
 
 button::-moz-focus-inner {
@@ -94,26 +94,30 @@ button:-moz-focusring {
 /*END NORMALIZE*/
 
 body {
+  height: 100vh;
+
   background: var(--primary-1);
   background: -moz-linear-gradient(top, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
   background: -webkit-linear-gradient(top, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
   background: linear-gradient(to bottom, var(--primary-1) 0%, var(--primary-1) 25%, var(--primary-2) 100%);
-  height: 100vh;
-}
-
-.main-container {
-  background-color: var(--back-color);
-  margin: 0 5vw 0 2vw;
-  display: flex;
-  justify-content: space-between;
 }
 
 .theme-toggle {
   position: absolute;
-  right: 1.7vw;
-  top: 1rem;
   z-index: 1;
+  top: 1rem;
+  right: 1.7vw;
+
   color: var(--brand-name);
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0 5vw 0 2vw;
+  
+  background-color: var(--back-color);
 }
 
 .content-container {
@@ -122,15 +126,18 @@ body {
   align-self: center;
   flex: auto;
   gap: 2rem;
+
   margin: 0 min(1rem, 1vw);
 }
 
 .welcome-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   align-self: center;
+  gap: 1.5rem;
+  
   min-width: min(800px, 100%);
+
   font-size: 1.5rem;
   color: var(--secondary-4);
 }
@@ -141,9 +148,11 @@ body {
 }
 
 .form-container {
-  color: var(--secondary-4);
-  min-width: min(740px, 100%);
   align-self: center;
+
+  min-width: min(740px, 100%);
+
+  color: var(--secondary-4);
 }
 
 form {
@@ -157,17 +166,21 @@ form {
 }
 
 .form-field>input {
-  height: 2.5rem;
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-  width:100%; 
   transition: all .3s;
+
   outline: none;
   border: 2px solid var(--secondary-3);
   border-radius: 8px;
   -webkit-border-radius: 8px;
-  color: var(--secondary-5);
+
+  width:100%; 
+  height: 2.5rem;
+  padding: 0.75rem 1rem;
+
   background-color: var(--back-color);
+
+  font-size: 1rem;
+  color: var(--secondary-5);
 }
 
 .form-field>input:focus {
@@ -180,14 +193,18 @@ form {
 
 .form-field>label {
   position: absolute;
-  left: 0.6rem;
-  top: 0.7rem;
-  transition: all 0.2s ease-in;
-  padding: 0 0.2rem;
   z-index: 1;
-  color: var(--label-color);
-  cursor: text;
+  top: 0.7rem;
+  left: 0.6rem;
+
+  transition: all 0.2s ease-in;
+
+  padding: 0 0.2rem;
+
   background-color: var(--back-color);
+  cursor: text;
+
+  color: var(--label-color);
 }
 /* ANOTHER OPTION
 .form-field>label::before {
@@ -204,17 +221,21 @@ form {
 .form-field>input:focus + label,
 .form-field>input:not(:placeholder-shown):not(:focus) + label {
   top: -0.6rem;
+
   font-size: 0.9rem;
 }
 
 .form-field>input::placeholder {
   opacity: 0;
+
   transition: all 0.2s ease-in;
+
   color: var(--secondary-1);
 }
 
 .form-field>input:focus::placeholder {
   opacity: 1;
+
   animation-delay: 0.2s;
 }
 
@@ -229,18 +250,19 @@ form {
 
 .password-eye {
   position: absolute;
-  right: 0.65rem;
   top: 0.5rem;
-  cursor: pointer;
+  right: 0.65rem;
+
   visibility: hidden;
-  opacity: 0;
+
   transition: opacity 0.2s ease-in;
+
+  cursor: pointer;
 }
 
 .form-field>input:focus~.password-eye,
 .form-field>input:not(:placeholder-shown):not(:focus)~.password-eye {
   visibility: visible;
-  opacity: 100;
 }
 
 .invisible {
@@ -248,15 +270,18 @@ form {
 }
 
 .tos-container {
-  grid-column: 1 / span 2;
-  font-size: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+
+  grid-column: 1 / span 2;
+
+  font-size: 1rem;
 }
 
 .signin-container {
   margin-top: 1.75rem;
+
   font-size: 1.125rem;
 }
 
@@ -265,15 +290,18 @@ form {
   border-radius: 0.25rem;
   background-color: var(--accent-1);
   border-radius: 8px;
-  color: var(--neutral);
-  font-family: -system-ui, sans-serif;
+
+  max-width: 75%;
+  padding: 1rem 2rem;
+
+  cursor: pointer;
+
   font-size: 1.25rem;
   line-height: 1.2;
+  font-family: -system-ui, sans-serif;
   white-space: nowrap;
   text-decoration: none;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  max-width: 75%;
+  color: var(--neutral);
 }
 
 .button:hover {
@@ -281,10 +309,12 @@ form {
 }
 
 .image-container {
-  background: url(./hero-image.webp) center/cover no-repeat;
+  position: relative;
+
   width: 79.49vh;
   height: 100vh;
-  position: relative;
+
+  background: url(./hero-image.webp) center/cover no-repeat;
 }
 
 [data-theme="dark"] .image-container {
@@ -293,30 +323,37 @@ form {
 
 .brand-name-container {
   position: absolute;
-  width: 100%;
-  text-align: center;
   top: 8%;
+
+  width: 100%;
   padding: 0.9em 0.4em 0.7em 0.4em;
-  color: var(--brand-name);
-  font-family: 'Limelight';
-  font-size: clamp(24px, 5vw, 48px);
+
   background-color: var(--secondary-1-60);
+
+  font-size: clamp(24px, 5vw, 48px);
+  font-family: 'Limelight';
+  text-align: center;
+  color: var(--brand-name);
 }
 
 .copyright {
   position: absolute;
   bottom: 0px;
-  padding-top: 2px;
+
   width: 100%;
-  text-align: center;
+  padding-top: 2px;
+
   background-color: var(--secondary-3);
+
+  text-align: center;
   color: var(--secondary-5);
 }
 
 span.pseudo-link {
-  color: var(--accent-1);
-  text-decoration: underline;
   cursor: pointer;
+
+  text-decoration: underline;
+  color: var(--accent-1);
 }
 
 span.pseudo-link:hover {
@@ -332,10 +369,14 @@ span.pseudo-link:hover {
 /* position label */
 [type="checkbox"] + label {
     position: relative;
+
+    display: inline-block;
+
     padding-top: 0.2rem;
     padding-left: 2rem;
+
     cursor: pointer;
-    display: inline-block;
+
     font-size: 1rem;
 }
 
@@ -343,13 +384,16 @@ span.pseudo-link:hover {
 [type="checkbox"] + label:before {
     content: '';
     position: absolute;
-    left: 0px; top: 0px;
+    top: 0px;
+    left: 0px; 
+
+    border: 2px solid var(--secondary-2);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    border-radius: 4px;
     width: 1.5rem; 
     height: 1.5rem;
-    border: 2px solid var(--secondary-2);
+
     background: transparent;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
 }
 
 /* check mark*/
@@ -358,10 +402,12 @@ span.pseudo-link:hover {
     position: absolute;
     top: 0px; 
     left: 0.4rem;
+
+    transition: all 0.3;
+
     font-size: 1.2rem;
     line-height: 1.2;
     color: var(--accent-2);
-    transition: all 0.3;
 }
 
 [type="checkbox"]:not(:checked) + label:after {
@@ -380,5 +426,6 @@ span.pseudo-link:hover {
 
 label:hover:before {
     border: 2px solid var(--accent-1)!important;
+    
     background: transparent;
 }

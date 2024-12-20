@@ -32,7 +32,7 @@ function ChangeColorTheme() {
 
 function SetPassCustomValidity(input_pass) {
 	if (input_pass.validity.patternMismatch) {
-		input_pass.setCustomValidity("Password does not match requested format.");
+		input_pass.setCustomValidity("Password should include one lowercase, one uppercase and one number.");
 	}
 	else {
 		input_pass.setCustomValidity("");
@@ -61,7 +61,8 @@ SetColorTheme(GetColorScheme());
 themeToggle_Light.addEventListener('click', ChangeColorTheme);
 themeToggle_Dark.addEventListener('click', ChangeColorTheme);
 
-passField.addEventListener('invalid', event => {SetPassCustomValidity(event.target)});
-passConfirmField.addEventListener('focusout', event => {CheckEqualValidity(event.target, passField);});
+passField.addEventListener('invalid', event => SetPassCustomValidity(event.target});
+passConfirmField.addEventListener('focusout', event => CheckEqualValidity(event.target, passField));
 
 showPassButton.forEach(button => button.addEventListener('click', ShowPassword));
+
