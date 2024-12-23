@@ -150,7 +150,7 @@ body {
 .form-container {
   align-self: center;
 
-  min-width: min(740px, 100%);
+  width: min(740px, 100%);
 
   color: var(--secondary-4);
 }
@@ -158,11 +158,32 @@ body {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem 2rem;
+
+  max-width: 740px;
 }
 
 .form-field {
   position: relative;
+}
+
+.form-warning {
+  margin-top: 0.5rem;
+  margin-left: 1.2rem;
+
+  transition: opacity 0.1s ease-in;
+
+  color: var(--error);
+}
+
+.form-hint {
+  position: absolute;
+  top: 3rem;
+  left: 1.2rem;
+
+  transition: opacity 0.1s ease-in;
+
+  color: var(--secondary-4);
 }
 
 .form-field>input {
@@ -206,17 +227,6 @@ form {
 
   color: var(--label-color);
 }
-/* ANOTHER OPTION
-.form-field>label::before {
-  content: "";
-  height: 5px;
-  background-color: greenyellow;
-  position: absolute;
-  left: 0px;
-  top: 0.6rem;
-  width: 100%;
-  z-index: -1;
-}*/
 
 .form-field>input:focus + label,
 .form-field>input:not(:placeholder-shown):not(:focus) + label {
@@ -255,7 +265,7 @@ form {
 
   visibility: hidden;
 
-  transition: opacity 0.2s ease-in;
+  transition: opacity 0.1s ease-in;
 
   cursor: pointer;
 }
@@ -266,13 +276,16 @@ form {
 }
 
 .invisible {
-  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .tos-container {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
 
   grid-column: 1 / span 2;
 
